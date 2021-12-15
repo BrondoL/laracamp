@@ -6,6 +6,7 @@
 <body>
 
     @include("components.navbar")
+    {{-- @include("layouts.navigation") --}}
     @yield("content")
     @include("layouts.script")
     @yield("myscript")
