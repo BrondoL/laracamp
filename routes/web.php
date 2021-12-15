@@ -32,3 +32,5 @@ Route::get('/success-checkout', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name("dashboard");
+
+require __DIR__ . '/auth.php';
