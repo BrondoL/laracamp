@@ -30,7 +30,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto">
                         <li>
-                            <a href="" class="dropdown-item">My Dashboard</a>
+                            <a href="{{ route('dashboard') }}" class="dropdown-item">My Dashboard</a>
                             <a href="" class="dropdown-item" onclick="signOut(event)">Sign Out</a>
                             <form action="{{ route('logout') }}" method="POST" id="logout-form" style="display:none">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
