@@ -34,13 +34,13 @@
                                     <strong>Rp. {{ number_format($checkout->Camp->price, 2, ',', '.') }}</strong>
                                 </td>
                                 <td>
-                                    @if ($checkout->is_paid)
-                                        <strong class="text-green">Payment Success</strong>
-                                    @else
-                                        <strong>Waiting for Payment</strong>
-                                    @endif
+                                    <strong class="text-capitalize">{{ $checkout->payment_status }}</strong>
                                 </td>
                                 <td>
+                                    @if ($checkout->payment_status === 'waiting')
+                                        <a href="{{ $checkout->midtrans_url }}" target="_blank"
+                                            class="mr-2 btn btn-primary">Pay Now</a>
+                                    @endif
                                     <a href="https://wa.me/6282297578773?text=Hi, saya ingin bertanya mengenai kelas {{ $checkout->Camp->title }}"
                                         target="_blank" class="btn btn-primary">
                                         Contact Support
@@ -50,7 +50,7 @@
                         @empty
                             <tr>
                                 <td colspan="5">
-                                    <h1>Belum ada data</h1>
+                                    <h1>No Camp Registered</h1>
                                 </td>
                             </tr>
                         @endforelse
