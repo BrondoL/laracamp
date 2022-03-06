@@ -31,7 +31,12 @@
                                     </p>
                                 </td>
                                 <td>
-                                    <strong>Rp. {{ number_format($checkout->Camp->price, 2, ',', '.') }}</strong>
+                                    <strong>
+                                        Rp. {{ number_format($checkout->Camp->total, 2, ',', '.') }}
+                                        @if ($checkout->discount_id)
+                                            <span class="badge bg-success">Disc {{ $checkout->discount_percentage }}%</span>
+                                        @endif
+                                    </strong>
                                 </td>
                                 <td>
                                     <strong class="text-capitalize">{{ $checkout->payment_status }}</strong>
